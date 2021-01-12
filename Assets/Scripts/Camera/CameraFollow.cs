@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour
     Transform target;
     
     [SerializeField]
-    float m_horizontalOffset = 13.6f;
+    float m_horizontalOffset = 14f;
     [SerializeField]
     float m_verticalOffset = -11f;
     

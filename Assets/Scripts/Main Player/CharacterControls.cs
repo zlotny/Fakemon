@@ -70,64 +70,58 @@ public class CharacterControls : MonoBehaviour
     private void ComputeControls()
     {
         if (!m_controlsEnabled) return;
+
+        Vector2 targetDirection = new Vector2();
+        FacingDirection targetLookingDirection = FacingDirection.South;
+
+        // Set the direction we want to go
         if (Input.GetAxis("Horizontal") > 0)
         {
-            m_timePressingDirection += Time.deltaTime;
-            if(m_timePressingDirection < m_startWalkingDelay){
-                this.m_facingDirection = FacingDirection.East;
-                return;
-            }
-            this.m_controlsEnabled = false;
-            this.m_movementStartingPoint = this.transform.position;
-            this.m_currentMovementVector = Vector2.right;
-            this.m_isWalking = true;
-            this.m_facingDirection = FacingDirection.East;
-            return;
+            targetDirection = Vector2.right;
+            targetLookingDirection = FacingDirection.East;
         }
         if (Input.GetAxis("Horizontal") < 0)
         {
-            m_timePressingDirection += Time.deltaTime;
-            if(m_timePressingDirection < m_startWalkingDelay){
-                this.m_facingDirection = FacingDirection.West;
-                return;
-            }
-            this.m_controlsEnabled = false;
-            this.m_movementStartingPoint = this.transform.position;
-            this.m_currentMovementVector = Vector2.left;
-            this.m_isWalking = true;
-            this.m_facingDirection = FacingDirection.West;
-            return;
+            targetDirection = Vector2.left;
+            targetLookingDirection = FacingDirection.West;
         }
         if (Input.GetAxis("Vertical") > 0)
         {
-            m_timePressingDirection += Time.deltaTime;
-            if(m_timePressingDirection < m_startWalkingDelay){
-                this.m_facingDirection = FacingDirection.North;
-                return;
-            }
-            this.m_controlsEnabled = false;
-            this.m_movementStartingPoint = this.transform.position;
-            this.m_currentMovementVector = Vector2.up;
-            this.m_isWalking = true;
-            this.m_facingDirection = FacingDirection.North;
-            return;
+            targetDirection = Vector2.up;
+            targetLookingDirection = FacingDirection.North;
         }
         if (Input.GetAxis("Vertical") < 0)
         {
+            targetDirection = Vector2.down;
+            targetLookingDirection = FacingDirection.South;
+        }
+
+        // Increments the timer for pressing a direction button to generate a delay
+        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
+        {
+            this.m_timePressingDirection = 0.0f;
+            this.m_isWalking = false;
+        }
+        else
+        {
             m_timePressingDirection += Time.deltaTime;
-            if(m_timePressingDirection < m_startWalkingDelay){
-                this.m_facingDirection = FacingDirection.South;
-                return;
-            }
-            this.m_controlsEnabled = false;
-            this.m_movementStartingPoint = this.transform.position;
-            this.m_currentMovementVector = Vector2.down;
-            this.m_isWalking = true;
-            this.m_facingDirection = FacingDirection.South;
+            this.m_facingDirection = targetLookingDirection;
+        }
+
+        // Ignore movement until a direction button was pressed long enough
+        if (m_timePressingDirection < m_startWalkingDelay)
+        {
             return;
         }
-        this.m_timePressingDirection = 0.0f;
-        this.m_isWalking = false;
+
+        // Check for collision to prevent moving if we can't reach the place
+        if (!CanMove(targetDirection)) return;
+
+        // Start moving
+        this.m_controlsEnabled = false;
+        this.m_movementStartingPoint = this.transform.position;
+        this.m_currentMovementVector = targetDirection;
+        this.m_isWalking = true;
     }
 
     private void ComputeMovement()
@@ -139,9 +133,8 @@ public class CharacterControls : MonoBehaviour
             {
                 this.m_currentMovementVector = new Vector2();
                 this.m_rigidBody.velocity = new Vector2();
-                this.transform.position = new Vector3(this.m_movementStartingPoint.x - m_distanceForEachStep, this.transform.position.y, this.transform.position.z);
+                this.transform.position = new Vector3(Mathf.Floor(this.m_movementStartingPoint.x - m_distanceForEachStep), Mathf.Floor(this.transform.position.y), Mathf.Floor(this.transform.position.z));
                 this.m_controlsEnabled = true;
-                // FIXME: Sometimes coordinates stop being aligned to a 16 unit grid (like 32.166). Maybe truncate value forcefully?
             }
         }
         if (this.m_currentMovementVector == Vector2.right)
@@ -150,7 +143,7 @@ public class CharacterControls : MonoBehaviour
             {
                 this.m_currentMovementVector = new Vector2();
                 this.m_rigidBody.velocity = new Vector2();
-                this.transform.position = new Vector3(this.m_movementStartingPoint.x + m_distanceForEachStep, this.transform.position.y, this.transform.position.z);
+                this.transform.position = new Vector3(Mathf.Floor(this.m_movementStartingPoint.x + m_distanceForEachStep), Mathf.Floor(this.transform.position.y), Mathf.Floor(this.transform.position.z));
                 this.m_controlsEnabled = true;
             }
 
@@ -161,7 +154,7 @@ public class CharacterControls : MonoBehaviour
             {
                 this.m_currentMovementVector = new Vector2();
                 this.m_rigidBody.velocity = new Vector2();
-                this.transform.position = new Vector3(this.transform.position.x, this.m_movementStartingPoint.y + m_distanceForEachStep, this.transform.position.z);
+                this.transform.position = new Vector3(Mathf.Floor(this.transform.position.x), Mathf.Floor(this.m_movementStartingPoint.y + m_distanceForEachStep), Mathf.Floor(this.transform.position.z));
                 this.m_controlsEnabled = true;
             }
 
@@ -172,7 +165,7 @@ public class CharacterControls : MonoBehaviour
             {
                 this.m_currentMovementVector = new Vector2();
                 this.m_rigidBody.velocity = new Vector2();
-                this.transform.position = new Vector3(this.transform.position.x, this.m_movementStartingPoint.y - m_distanceForEachStep, this.transform.position.z);
+                this.transform.position = new Vector3(Mathf.Floor(this.transform.position.x), Mathf.Floor(this.m_movementStartingPoint.y - m_distanceForEachStep), Mathf.Floor(this.transform.position.z));
                 this.m_controlsEnabled = true;
             }
 

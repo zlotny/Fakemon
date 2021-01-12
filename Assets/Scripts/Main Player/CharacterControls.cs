@@ -58,7 +58,7 @@ public class CharacterControls : MonoBehaviour
         RaycastHit2D[] hits = Physics2D.RaycastAll(this.m_collider.bounds.center, direction, m_distanceForEachStep);
         foreach (var hit in hits)
         {
-            if (hit.transform.tag != "Player")
+            if (hit.transform.tag != "Player" && !hit.collider.isTrigger)
             {
                 Debug.Log(hit.transform.name);
                 return false;

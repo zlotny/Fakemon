@@ -42,7 +42,6 @@ public class CharacterControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(m_timePressingDirection);
         ComputeControls();
         ComputeMovement();
         UpdateAnimatorParameters();

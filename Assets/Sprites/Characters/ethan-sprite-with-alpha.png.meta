@@ -1,0 +1,821 @@
+fileFormatVersion: 2
+guid: 3173eb3bc09e6fd3082a32936f5d9920
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6253490051535521120
+    second: ethan-srite-with-alpha_0
+  - first:
+      213: 7344120596481981555
+    second: ethan-srite-with-alpha_1
+  - first:
+      213: -7411122710777589744
+    second: ethan-srite-with-alpha_2
+  - first:
+      213: -8253773801395676717
+    second: ethan-srite-with-alpha_3
+  - first:
+      213: -401571863190467465
+    second: ethan-srite-with-alpha_4
+  - first:
+      213: -9065522541612882885
+    second: ethan-srite-with-alpha_5
+  - first:
+      213: -6184217733490377930
+    second: ethan-srite-with-alpha_6
+  - first:
+      213: 1230745160269214798
+    second: ethan-srite-with-alpha_7
+  - first:
+      213: 5597899515830830894
+    second: ethan-srite-with-alpha_8
+  - first:
+      213: -4937945090881228696
+    second: ethan-srite-with-alpha_9
+  - first:
+      213: -7017536188550962043
+    second: ethan-srite-with-alpha_10
+  - first:
+      213: 4922067653571892678
+    second: ethan-srite-with-alpha_11
+  - first:
+      213: -1915226080213593701
+    second: ethan-srite-with-alpha_12
+  - first:
+      213: -8196149096463451861
+    second: ethan-srite-with-alpha_13
+  - first:
+      213: -489448930220392530
+    second: ethan-srite-with-alpha_14
+  - first:
+      213: 7842579498334966497
+    second: ethan-srite-with-alpha_15
+  - first:
+      213: 4391030595777331273
+    second: ethan-srite-with-alpha_16
+  - first:
+      213: -4186842846028816727
+    second: ethan-srite-with-alpha_17
+  - first:
+      213: 5658309551328566520
+    second: ethan-srite-with-alpha_18
+  - first:
+      213: -387745013393949997
+    second: ethan-srite-with-alpha_19
+  - first:
+      213: 3798826722615010157
+    second: ethan-srite-with-alpha_20
+  - first:
+      213: 7248117620714430771
+    second: ethan-srite-with-alpha_21
+  - first:
+      213: -1297924921275456279
+    second: ethan-srite-with-alpha_22
+  - first:
+      213: 8955364492828192076
+    second: ethan-srite-with-alpha_23
+  - first:
+      213: 7478747142492142962
+    second: ethan-srite-with-alpha_24
+  - first:
+      213: -542473864672084500
+    second: ethan-srite-with-alpha_25
+  - first:
+      213: 8073333578428826418
+    second: ethan-srite-with-alpha_26
+  - first:
+      213: 6922692002623588580
+    second: ethan-srite-with-alpha_27
+  - first:
+      213: 207597863663629004
+    second: ethan-srite-with-alpha_28
+  - first:
+      213: 8700847320925857858
+    second: ethan-srite-with-alpha_29
+  - first:
+      213: -5714383538977438392
+    second: ethan-srite-with-alpha_30
+  - first:
+      213: -1769811314214605013
+    second: ethan-srite-with-alpha_31
+  - first:
+      213: 2240770460473680298
+    second: ethan-srite-with-alpha_32
+  - first:
+      213: 1776917902451637970
+    second: ethan-srite-with-alpha_33
+  - first:
+      213: -2187075820564046530
+    second: ethan-srite-with-alpha_34
+  - first:
+      213: -4423166056327568926
+    second: ethan-srite-with-alpha_35
+  - first:
+      213: -3933647697415231708
+    second: ethan-srite-with-alpha_36
+  - first:
+      213: -5296989265433890555
+    second: ethan-srite-with-alpha_37
+  - first:
+      213: -6764386465081161893
+    second: ethan-srite-with-alpha_38
+  - first:
+      213: 6741199429646738812
+    second: ethan-srite-with-alpha_39
+  - first:
+      213: -31632864137011811
+    second: ethan-srite-with-alpha_40
+  - first:
+      213: -303005276241482665
+    second: ethan-srite-with-alpha_41
+  - first:
+      213: -2012801542587872676
+    second: ethan-srite-with-alpha_42
+  - first:
+      213: 1869377513515015907
+    second: ethan-srite-with-alpha_43
+  - first:
+      213: -6812666084884090861
+    second: ethan-srite-with-alpha_44
+  - first:
+      213: 6013119654152041391
+    second: ethan-srite-with-alpha_45
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 113
+        width: 14
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 065c638c11cd8c650800000000000000
+      internalID: 6253490051535521120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 114
+        width: 14
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37c30fc85ce8be560800000000000000
+      internalID: 7344120596481981555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_2
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 113
+        width: 14
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 010954d0927662990800000000000000
+      internalID: -7411122710777589744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_3
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 114
+        width: 14
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d9926f3574b47d80800000000000000
+      internalID: -8253773801395676717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_4
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 113
+        width: 14
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77c8dbe94845d6af0800000000000000
+      internalID: -401571863190467465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_5
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 114
+        width: 14
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b342ed3974bc03280800000000000000
+      internalID: -9065522541612882885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_6
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 114
+        width: 14
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63b72ad9cbe3d2aa0800000000000000
+      internalID: -6184217733490377930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_7
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 113
+        width: 14
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e44b0e6d33c741110800000000000000
+      internalID: 1230745160269214798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_8
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 114
+        width: 14
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e278d6163fbbfad40800000000000000
+      internalID: 5597899515830830894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_9
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 114
+        width: 14
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 860f3a92a15e87bb0800000000000000
+      internalID: -4937945090881228696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_10
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 85
+        width: 17
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 584a8fa5404bc9e90800000000000000
+      internalID: -7017536188550962043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 85
+        width: 17
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c5d793e372be4440800000000000000
+      internalID: 4922067653571892678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_12
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 83
+        width: 14
+        height: 24
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b911e400700cb65e0800000000000000
+      internalID: -1915226080213593701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 85
+        width: 14
+        height: 24
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b29382362dd614e80800000000000000
+      internalID: -8196149096463451861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_14
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 65
+        width: 15
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eafb48a8ac02539f0800000000000000
+      internalID: -489448930220392530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_15
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 65
+        width: 14
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e25401808076dc60800000000000000
+      internalID: 7842579498334966497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_16
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 65
+        width: 15
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9400e2bef0310fc30800000000000000
+      internalID: 4391030595777331273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_17
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 65
+        width: 14
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ae11184d9855e5c0800000000000000
+      internalID: -4186842846028816727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_18
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 65
+        width: 14
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fc9324de8a568e40800000000000000
+      internalID: 5658309551328566520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_19
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 65
+        width: 14
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3da7935f6f37e9af0800000000000000
+      internalID: -387745013393949997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_20
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 65
+        width: 16
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d63aab4f6c428b430800000000000000
+      internalID: 3798826722615010157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_21
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 65
+        width: 16
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 331eee8e29c769460800000000000000
+      internalID: 7248117620714430771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_22
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 65
+        width: 16
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e4ef3a2928dcfde0800000000000000
+      internalID: -1297924921275456279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_23
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 65
+        width: 16
+        height: 16
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4dab250f88d74c70800000000000000
+      internalID: 8955364492828192076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_32
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 5
+        width: 45
+        height: 46
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa1e8b79cd0d81f10800000000000000
+      internalID: 2240770460473680298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_33
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 2
+        width: 32
+        height: 55
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de79a2fa61e8a810800000000000000
+      internalID: 1776917902451637970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ethan-srite-with-alpha_34
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 2
+        width: 32
+        height: 55
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3d1f6af022f5a1e0800000000000000
+      internalID: -2187075820564046530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

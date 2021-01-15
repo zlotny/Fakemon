@@ -45,6 +45,15 @@ public class CharacterControls : MonoBehaviour
     float m_timePressingDirection = 0.0f;
     #endregion
 
+    private static CharacterControls _instance;
+    public static CharacterControls Instance { get { return _instance; } }
+
+    private void Awake()
+    {
+        if (_instance != null) throw new UnityException("There's already an instance of " + this.GetType().Name);
+        _instance = this;
+    }
+
     void Start()
     {
         this.m_rigidBody = GetComponent<Rigidbody2D>();
@@ -110,7 +119,7 @@ public class CharacterControls : MonoBehaviour
         {
             Interactable targetInteractable = hit.transform.gameObject.GetComponent<Interactable>();
             if (targetInteractable == null)
-                return;
+                continue;
             targetInteractable.Interact(this.gameObject);
         }
     }
@@ -122,6 +131,11 @@ public class CharacterControls : MonoBehaviour
         if (facingDirection == FacingDirection.South) return Vector2.down;
         if (facingDirection == FacingDirection.West) return Vector2.left;
         throw new UnityException("Weird cardinal direction received :S: " + facingDirection);
+    }
+
+    public void SetControlsEnabled(bool enabled)
+    {
+        this.m_controlsEnabled = enabled;
     }
 
     private void ComputeControls()
@@ -188,7 +202,7 @@ public class CharacterControls : MonoBehaviour
         if (!CanMove(targetDirection)) return;
 
         // Start moving
-        this.m_controlsEnabled = false;
+        this.SetControlsEnabled(false);
         this.m_movementStartingPoint = this.transform.position;
         this.m_currentMovementVector = targetDirection;
         this.m_isWalking = true;
@@ -204,7 +218,7 @@ public class CharacterControls : MonoBehaviour
                 this.m_currentMovementVector = new Vector2();
                 this.m_rigidBody.velocity = new Vector2();
                 this.transform.position = new Vector3(Mathf.Floor(this.m_movementStartingPoint.x - m_distanceForEachStep), Mathf.Floor(this.transform.position.y), Mathf.Floor(this.transform.position.z));
-                this.m_controlsEnabled = true;
+                this.SetControlsEnabled(true);
             }
         }
         if (this.m_currentMovementVector == Vector2.right)
@@ -214,7 +228,7 @@ public class CharacterControls : MonoBehaviour
                 this.m_currentMovementVector = new Vector2();
                 this.m_rigidBody.velocity = new Vector2();
                 this.transform.position = new Vector3(Mathf.Floor(this.m_movementStartingPoint.x + m_distanceForEachStep), Mathf.Floor(this.transform.position.y), Mathf.Floor(this.transform.position.z));
-                this.m_controlsEnabled = true;
+                this.SetControlsEnabled(true);
             }
 
         }
@@ -225,7 +239,7 @@ public class CharacterControls : MonoBehaviour
                 this.m_currentMovementVector = new Vector2();
                 this.m_rigidBody.velocity = new Vector2();
                 this.transform.position = new Vector3(Mathf.Floor(this.transform.position.x), Mathf.Floor(this.m_movementStartingPoint.y + m_distanceForEachStep), Mathf.Floor(this.transform.position.z));
-                this.m_controlsEnabled = true;
+                this.SetControlsEnabled(true);
             }
 
         }
@@ -236,7 +250,7 @@ public class CharacterControls : MonoBehaviour
                 this.m_currentMovementVector = new Vector2();
                 this.m_rigidBody.velocity = new Vector2();
                 this.transform.position = new Vector3(Mathf.Floor(this.transform.position.x), Mathf.Floor(this.m_movementStartingPoint.y - m_distanceForEachStep), Mathf.Floor(this.transform.position.z));
-                this.m_controlsEnabled = true;
+                this.SetControlsEnabled(true);
             }
 
         }

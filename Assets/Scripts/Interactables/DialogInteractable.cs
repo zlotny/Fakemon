@@ -6,6 +6,7 @@ using UnityEngine;
 public class DialogInteractable : Interactable
 {
     [SerializeField]
+    [Multiline]
     private string m_message = "";
 
     public override void Interact(GameObject source)

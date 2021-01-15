@@ -95,12 +95,56 @@ public class CharacterControls : MonoBehaviour
         return true;
     }
 
+    private void PerformInteraction(Vector2 direction)
+    {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(this.m_collider.bounds.center, direction, m_distanceForEachStep);
+        foreach (var hit in hits)
+        {
+            Interactable targetInteractable = hit.transform.gameObject.GetComponent<Interactable>();
+            if (targetInteractable != null)
+            {
+                targetInteractable.Interact(this.gameObject);
+            }
+        }
+    }
+
+    private Vector2 FacingDirectionToVector(FacingDirection facingDirection)
+    {
+        if (facingDirection == FacingDirection.North)
+        {
+            return Vector2.up;
+        }
+        if (facingDirection == FacingDirection.East)
+        {
+            return Vector2.right;
+        }
+        if (facingDirection == FacingDirection.South)
+        {
+            return Vector2.down;
+        }
+        if (facingDirection == FacingDirection.West)
+        {
+            return Vector2.left;
+        }
+        throw new UnityException("Weird cardinal direction received :S: " + facingDirection);
+    }
+
     private void ComputeControls()
     {
         if (!m_controlsEnabled) return;
 
         Vector2 targetDirection = new Vector2();
         FacingDirection targetLookingDirection = FacingDirection.South;
+
+        if (Input.GetButtonDown("A"))
+        {
+            PerformInteraction(FacingDirectionToVector(m_facingDirection));
+        }
+
+        if (Input.GetButtonDown("B"))
+        {
+            Debug.Log("Player pressed B ");
+        }
 
         // Set the direction we want to go
         if (Input.GetAxis("Horizontal") > 0)

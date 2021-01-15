@@ -10,6 +10,6 @@ public class DialogInteractable : Interactable
     public override void Interact(GameObject source)
     {
         base.Interact(source);
-        Debug.Log("This should spawn a dialog on screen for text: " + this.m_message);
+        UIDialogPanel.Instance.ShowText(m_message);
     }
 }

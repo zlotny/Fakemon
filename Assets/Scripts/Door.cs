@@ -5,24 +5,15 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Door : MonoBehaviour
 {
-    public Vector2 destination;
+    public Vector2 m_destination;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         CharacterControls playerCharacterControls = other.gameObject.GetComponent<CharacterControls>();
-        if(playerCharacterControls != null){
-            FadeToWhite.Instance.Activate();
-            playerCharacterControls.RequestTeleportToPoint(destination);
-        }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+        if (playerCharacterControls == null)
+            return;
 
-    // Update is called once per frame
-    void Update()
-    {
-
+        FadeToWhite.Instance.Activate();
+        playerCharacterControls.RequestTeleportToPoint(m_destination);
     }
 }

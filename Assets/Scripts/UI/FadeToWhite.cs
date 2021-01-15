@@ -2,39 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class FadeToWhite : MonoBehaviour
 {
     private static FadeToWhite _instance;
     public static FadeToWhite Instance { get { return _instance; } }
 
-    Animator animator = null;
+    Animator m_animator = null;
 
     private void Awake()
     {
-        if (_instance != null)
-        {
-            throw new UnityException("There's already an instance of FadeToWhite");
-        }
-        else
-        {
-            _instance = this;
-        }
+        if (_instance != null) throw new UnityException("There's already an instance of " + this.GetType().Name);
+        _instance = this;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        this.animator = this.GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        this.m_animator = this.GetComponent<Animator>();
     }
 
     public void Activate()
     {
-        this.animator.SetTrigger("FadeToWhite");
+        this.m_animator.SetTrigger("FadeToWhite");
     }
 }

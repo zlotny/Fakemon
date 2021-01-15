@@ -2,26 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Follows the player around
+
 [ExecuteInEditMode]
 public class CameraFollow : MonoBehaviour
 {
-    Transform target;
+    Transform m_target;
     
     [SerializeField]
     float m_horizontalOffset = 14f;
     [SerializeField]
     float m_verticalOffset = -11f;
     
-    // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        m_target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        this.transform.position = new Vector3(target.position.x + m_horizontalOffset, target.position.y + m_verticalOffset, this.transform.position.z);
+        this.transform.position = new Vector3(m_target.position.x + m_horizontalOffset, m_target.position.y + m_verticalOffset, this.transform.position.z);
     }
 }

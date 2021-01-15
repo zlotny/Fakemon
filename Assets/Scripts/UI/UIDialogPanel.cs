@@ -10,25 +10,26 @@ public class UIDialogPanel : MonoBehaviour
     public static UIDialogPanel Instance { get { return _instance; } }
 
     private string m_currentMessage;
-    private TextMeshProUGUI m_dialog_panel_text;
+    private TextMeshProUGUI m_dialogPanelText;
 
 
     private void Awake()
     {
-        if (_instance != null)
-        {
-            throw new UnityException("There's already an instance of FadeToWhite");
-        }
-        else
-        {
-            _instance = this;
-        }
+        if (_instance != null) throw new UnityException("There's already an instance of " + this.GetType().Name);
+        _instance = this;
+    }
+
+    void Start()
+    {
+        m_dialogPanelText = GetComponentInChildren<TextMeshProUGUI>();
+        if (!m_dialogPanelText) throw new UnityException(this.name + " does not have a child with an TextMeshoProUGUI component on it");
+        Hide();
     }
 
     public void ShowText(string text)
     {
         m_currentMessage = text;
-        m_dialog_panel_text.SetText(m_currentMessage);
+        m_dialogPanelText.SetText(m_currentMessage);
         this.gameObject.SetActive(true);
     }
 
@@ -37,17 +38,5 @@ public class UIDialogPanel : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        m_dialog_panel_text = GetComponentInChildren<TextMeshProUGUI>();
-        Debug.Log(m_dialog_panel_text);
-        Hide();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

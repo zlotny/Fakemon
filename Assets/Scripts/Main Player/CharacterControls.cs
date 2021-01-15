@@ -12,29 +12,39 @@ public enum FacingDirection
     West = 3
 }
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class CharacterControls : MonoBehaviour
 {
+    #region Inspector Fields
     [SerializeField]
     float m_movementSpeed = 48f;
     [SerializeField]
     float m_distanceForEachStep = 16f;
     [SerializeField]
     float m_startWalkingDelay = 0.1f;
+    #endregion
 
-    Vector2 m_currentMovementVector = new Vector2();
-    Vector2 m_movementStartingPoint = new Vector2();
+    #region Component refernces
     Rigidbody2D m_rigidBody = null;
     Animator m_animator = null;
     BoxCollider2D m_collider = null;
+    #endregion
+
+    #region Internal Variables
+    FacingDirection m_facingDirection = FacingDirection.South;
+    Vector2 m_currentMovementVector = new Vector2();
+    Vector2 m_movementStartingPoint = new Vector2();
+    Vector2 m_nextTeleportPoint = new Vector2();
+
     bool m_controlsEnabled = true;
     bool m_isWalking = false;
-    FacingDirection m_facingDirection = FacingDirection.South;
+    bool m_needsToTeleportASAP = false;
+
     float m_timePressingDirection = 0.0f;
+    #endregion
 
-    bool needsToTeleportASAP = false;
-    Vector2 nextTeleportPoint = new Vector2();
-
-    // Start is called before the first frame update
     void Start()
     {
         this.m_rigidBody = GetComponent<Rigidbody2D>();
@@ -42,7 +52,6 @@ public class CharacterControls : MonoBehaviour
         this.m_collider = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         ComputeControls();
@@ -53,20 +62,19 @@ public class CharacterControls : MonoBehaviour
 
     public void RequestTeleportToPoint(Vector2 destination)
     {
-        this.nextTeleportPoint = destination;
-        this.needsToTeleportASAP = true;
+        this.m_nextTeleportPoint = destination;
+        this.m_needsToTeleportASAP = true;
     }
 
     private void CheckIfNeedTeleport()
     {
         if (IsIdle())
         {
-            if (this.needsToTeleportASAP)
+            if (this.m_needsToTeleportASAP)
             {
-                // FIXME: Trigger some kind of animation to fade out.
-                this.transform.position = this.nextTeleportPoint;
-                this.needsToTeleportASAP = false;
-                this.nextTeleportPoint = new Vector2();
+                this.transform.position = this.m_nextTeleportPoint;
+                this.m_needsToTeleportASAP = false;
+                this.m_nextTeleportPoint = new Vector2();
             }
         }
     }
@@ -101,31 +109,18 @@ public class CharacterControls : MonoBehaviour
         foreach (var hit in hits)
         {
             Interactable targetInteractable = hit.transform.gameObject.GetComponent<Interactable>();
-            if (targetInteractable != null)
-            {
-                targetInteractable.Interact(this.gameObject);
-            }
+            if (targetInteractable == null)
+                return;
+            targetInteractable.Interact(this.gameObject);
         }
     }
 
     private Vector2 FacingDirectionToVector(FacingDirection facingDirection)
     {
-        if (facingDirection == FacingDirection.North)
-        {
-            return Vector2.up;
-        }
-        if (facingDirection == FacingDirection.East)
-        {
-            return Vector2.right;
-        }
-        if (facingDirection == FacingDirection.South)
-        {
-            return Vector2.down;
-        }
-        if (facingDirection == FacingDirection.West)
-        {
-            return Vector2.left;
-        }
+        if (facingDirection == FacingDirection.North) return Vector2.up;
+        if (facingDirection == FacingDirection.East) return Vector2.right;
+        if (facingDirection == FacingDirection.South) return Vector2.down;
+        if (facingDirection == FacingDirection.West) return Vector2.left;
         throw new UnityException("Weird cardinal direction received :S: " + facingDirection);
     }
 
@@ -152,16 +147,19 @@ public class CharacterControls : MonoBehaviour
             targetDirection = Vector2.right;
             targetLookingDirection = FacingDirection.East;
         }
+
         if (Input.GetAxis("Horizontal") < 0)
         {
             targetDirection = Vector2.left;
             targetLookingDirection = FacingDirection.West;
         }
+
         if (Input.GetAxis("Vertical") > 0)
         {
             targetDirection = Vector2.up;
             targetLookingDirection = FacingDirection.North;
         }
+
         if (Input.GetAxis("Vertical") < 0)
         {
             targetDirection = Vector2.down;

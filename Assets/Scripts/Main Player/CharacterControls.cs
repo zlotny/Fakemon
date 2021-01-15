@@ -31,6 +31,9 @@ public class CharacterControls : MonoBehaviour
     FacingDirection m_facingDirection = FacingDirection.South;
     float m_timePressingDirection = 0.0f;
 
+    bool needsToTeleportASAP = false;
+    Vector2 nextTeleportPoint = new Vector2();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +48,32 @@ public class CharacterControls : MonoBehaviour
         ComputeControls();
         ComputeMovement();
         UpdateAnimatorParameters();
+        CheckIfNeedTeleport();
+    }
+
+    public void RequestTeleportToPoint(Vector2 destination)
+    {
+        this.nextTeleportPoint = destination;
+        this.needsToTeleportASAP = true;
+    }
+
+    private void CheckIfNeedTeleport()
+    {
+        if (IsIdle())
+        {
+            if (this.needsToTeleportASAP)
+            {
+                // FIXME: Trigger some kind of animation to fade out.
+                this.transform.position = this.nextTeleportPoint;
+                this.needsToTeleportASAP = false;
+                this.nextTeleportPoint = new Vector2();
+            }
+        }
+    }
+
+    private bool IsIdle()
+    {
+        return this.m_rigidBody.velocity.magnitude == 0;
     }
 
     private void UpdateAnimatorParameters()

@@ -89,7 +89,6 @@ public class CharacterControls : MonoBehaviour
         {
             if (hit.transform.tag != "Player" && !hit.collider.isTrigger)
             {
-                Debug.Log(hit.transform.name);
                 return false;
             }
         }

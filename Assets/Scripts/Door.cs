@@ -9,11 +9,11 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        CharacterControls playerCharacterControls = other.gameObject.GetComponent<CharacterControls>();
-        if (playerCharacterControls == null)
+        CharacterMover playerCharacterMover = other.gameObject.GetComponent<CharacterMover>();
+        if (playerCharacterMover == null)
             return;
 
         FadeToWhite.Instance.Activate();
-        playerCharacterControls.RequestTeleportToPoint(m_destination);
+        playerCharacterMover.RequestTeleportToPoint(m_destination);
     }
 }

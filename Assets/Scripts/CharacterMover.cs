@@ -36,6 +36,7 @@ public class CharacterMover : MonoBehaviour
     Vector2 m_movementStartingPoint = new Vector2();
     Vector2 m_nextTeleportPoint = new Vector2();
     bool m_isWalking = false;
+    bool m_isJumping = false;
     bool m_needsToTeleportASAP = false;
     Action m_onMovingCompleteCallback;
     #endregion
@@ -115,17 +116,23 @@ public class CharacterMover : MonoBehaviour
     private void UpdateAnimatorParameters()
     {
         this.m_animator.SetBool("IsWalking", this.m_isWalking);
+        this.m_animator.SetBool("IsJumping", this.m_isJumping);
         this.m_animator.SetInteger("FacingDirection", (int)this.m_facingDirection);
     }
 
     public bool CanNPCMove(Vector2 direction)
     {
-        RaycastHit2D[] hits = Physics2D.RaycastAll(this.m_collider.bounds.center, direction, m_distanceForEachStep);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(this.m_collider.bounds.center, direction, m_distanceForEachStep * 1.2f);
         foreach (var hit in hits)
         {
             if (hit.transform.tag != "NPC" && !hit.collider.isTrigger)
             {
                 return false;
+            }
+            else
+            {
+                bool isPlayer = hit.transform.tag == "Player";
+                if (isPlayer) return false;
             }
         }
         return true;
@@ -133,15 +140,51 @@ public class CharacterMover : MonoBehaviour
 
     public bool CanPlayerMove(Vector2 direction)
     {
-        RaycastHit2D[] hits = Physics2D.RaycastAll(this.m_collider.bounds.center, direction, m_distanceForEachStep);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(this.m_collider.bounds.center, direction, m_distanceForEachStep * 1.2f);
         foreach (var hit in hits)
         {
             if (hit.transform.tag != "Player" && !hit.collider.isTrigger)
             {
                 return false;
             }
+            else
+            {
+                bool isNPC = hit.transform.tag == "NPC";
+                // FIXME: This is a tad stupid but... if it's another player? Maybe check that?
+                if (isNPC) return false;
+            }
         }
         return true;
+    }
+
+    public bool CanPlayerJump(FacingDirection facingDirection)
+    {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(this.m_collider.bounds.center, FacingDirectionToVector(facingDirection), m_distanceForEachStep * 1.2f);
+        foreach (var hit in hits)
+        {
+            Ledge ledgeComponent = hit.collider.GetComponent<Ledge>();
+            if (ledgeComponent == null) continue;
+            if (ledgeComponent.GetJumpableDirection() == this.m_facingDirection)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void JumpTowards(Vector2 direction)
+    {
+        if (m_characterControls) m_characterControls.SetControlsEnabled(false);
+        m_collider.enabled = false;
+        m_isJumping = true;
+        StartMovingTowards(direction);
+    }
+
+    public void StopJumping()
+    {
+        m_isJumping = false;
+        m_collider.enabled = true;
+        if (m_characterControls) m_characterControls.SetControlsEnabled(true);
     }
 
     public void PerformInteraction()
@@ -178,50 +221,55 @@ public class CharacterMover : MonoBehaviour
     private void ComputeMovement()
     {
         this.m_rigidBody.velocity = m_currentMovementVector * m_movementSpeed;
+        float totalDistanceToMove = m_isJumping ? m_distanceForEachStep * 2 : m_distanceForEachStep;
         if (this.m_currentMovementVector == Vector2.left)
         {
-            if (this.transform.position.x < this.m_movementStartingPoint.x - m_distanceForEachStep)
+            if (this.transform.position.x < this.m_movementStartingPoint.x - totalDistanceToMove)
             {
                 this.m_currentMovementVector = new Vector2();
                 this.m_rigidBody.velocity = new Vector2();
-                this.transform.position = new Vector3(Mathf.Floor(this.m_movementStartingPoint.x - m_distanceForEachStep), Mathf.Floor(this.transform.position.y), Mathf.Floor(this.transform.position.z));
-                if (m_characterControls) m_characterControls.SetControlsEnabled(true);
+                this.transform.position = new Vector3(Mathf.Floor(this.m_movementStartingPoint.x - totalDistanceToMove), Mathf.Floor(this.transform.position.y), Mathf.Floor(this.transform.position.z));
+                if (m_isJumping) StopJumping();
                 if (m_onMovingCompleteCallback != null) m_onMovingCompleteCallback();
+                if (m_characterControls) m_characterControls.SetControlsEnabled(true);
             }
         }
         if (this.m_currentMovementVector == Vector2.right)
         {
-            if (this.transform.position.x > this.m_movementStartingPoint.x + m_distanceForEachStep)
+            if (this.transform.position.x > this.m_movementStartingPoint.x + totalDistanceToMove)
             {
                 this.m_currentMovementVector = new Vector2();
                 this.m_rigidBody.velocity = new Vector2();
-                this.transform.position = new Vector3(Mathf.Floor(this.m_movementStartingPoint.x + m_distanceForEachStep), Mathf.Floor(this.transform.position.y), Mathf.Floor(this.transform.position.z));
-                if (m_characterControls) m_characterControls.SetControlsEnabled(true);
+                this.transform.position = new Vector3(Mathf.Floor(this.m_movementStartingPoint.x + totalDistanceToMove), Mathf.Floor(this.transform.position.y), Mathf.Floor(this.transform.position.z));
+                if (m_isJumping) StopJumping();
                 if (m_onMovingCompleteCallback != null) m_onMovingCompleteCallback();
+                if (m_characterControls) m_characterControls.SetControlsEnabled(true);
             }
 
         }
         if (this.m_currentMovementVector == Vector2.up)
         {
-            if (this.transform.position.y > this.m_movementStartingPoint.y + m_distanceForEachStep)
+            if (this.transform.position.y > this.m_movementStartingPoint.y + totalDistanceToMove)
             {
                 this.m_currentMovementVector = new Vector2();
                 this.m_rigidBody.velocity = new Vector2();
-                this.transform.position = new Vector3(Mathf.Floor(this.transform.position.x), Mathf.Floor(this.m_movementStartingPoint.y + m_distanceForEachStep), Mathf.Floor(this.transform.position.z));
-                if (m_characterControls) m_characterControls.SetControlsEnabled(true);
+                this.transform.position = new Vector3(Mathf.Floor(this.transform.position.x), Mathf.Floor(this.m_movementStartingPoint.y + totalDistanceToMove), Mathf.Floor(this.transform.position.z));
+                if (m_isJumping) StopJumping();
                 if (m_onMovingCompleteCallback != null) m_onMovingCompleteCallback();
+                if (m_characterControls) m_characterControls.SetControlsEnabled(true);
             }
 
         }
         if (this.m_currentMovementVector == Vector2.down)
         {
-            if (this.transform.position.y < this.m_movementStartingPoint.y - m_distanceForEachStep)
+            if (this.transform.position.y < this.m_movementStartingPoint.y - totalDistanceToMove)
             {
                 this.m_currentMovementVector = new Vector2();
                 this.m_rigidBody.velocity = new Vector2();
-                this.transform.position = new Vector3(Mathf.Floor(this.transform.position.x), Mathf.Floor(this.m_movementStartingPoint.y - m_distanceForEachStep), Mathf.Floor(this.transform.position.z));
-                if (m_characterControls) m_characterControls.SetControlsEnabled(true);
+                this.transform.position = new Vector3(Mathf.Floor(this.transform.position.x), Mathf.Floor(this.m_movementStartingPoint.y - totalDistanceToMove), Mathf.Floor(this.transform.position.z));
+                if (m_isJumping) StopJumping();
                 if (m_onMovingCompleteCallback != null) m_onMovingCompleteCallback();
+                if (m_characterControls) m_characterControls.SetControlsEnabled(true);
             }
 
         }

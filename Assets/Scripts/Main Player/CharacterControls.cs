@@ -107,7 +107,15 @@ public class CharacterControls : MonoBehaviour
         }
 
         // Check for collision to prevent moving if we can't reach the place
-        if (!m_characterMover.CanPlayerMove(targetDirection)) return;
+        if (!m_characterMover.CanPlayerMove(targetDirection))
+        {
+            if (m_characterMover.CanPlayerJump(m_characterMover.GetFacingDirection()))
+            {
+                Debug.Log("Player can jump towards " + targetDirection);
+                m_characterMover.JumpTowards(targetDirection);
+            }
+            return;
+        }
 
         // Start moving
         m_characterMover.StartMovingTowards(targetDirection);

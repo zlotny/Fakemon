@@ -1542,6 +1542,7 @@ GameObject:
   - component: {fileID: 241513976}
   - component: {fileID: 241513978}
   - component: {fileID: 241513977}
+  - component: {fileID: 241513979}
   m_Layer: 0
   m_Name: Player House Door
   m_TagString: Untagged
@@ -1602,6 +1603,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 8}
   m_EdgeRadius: 0
+--- !u!50 &241513979
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241513975}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &265630570
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,6 +2207,7 @@ GameObject:
   - component: {fileID: 338992302}
   - component: {fileID: 338992304}
   - component: {fileID: 338992303}
+  - component: {fileID: 338992305}
   m_Layer: 0
   m_Name: Door To Outside
   m_TagString: Untagged
@@ -2245,6 +2268,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 28.95575, y: 8}
   m_EdgeRadius: 0
+--- !u!50 &338992305
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338992301}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &346723211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2908,6 +2952,7 @@ GameObject:
   - component: {fileID: 437386642}
   - component: {fileID: 437386644}
   - component: {fileID: 437386643}
+  - component: {fileID: 437386645}
   m_Layer: 0
   m_Name: Door To Outside
   m_TagString: Untagged
@@ -2968,6 +3013,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 28.788666, y: 8}
   m_EdgeRadius: 0
+--- !u!50 &437386645
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437386641}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &446123350
 GameObject:
   m_ObjectHideFlags: 0
@@ -3278,6 +3344,7 @@ GameObject:
   - component: {fileID: 473278533}
   - component: {fileID: 473278535}
   - component: {fileID: 473278534}
+  - component: {fileID: 473278536}
   m_Layer: 0
   m_Name: DoorToF1
   m_TagString: Untagged
@@ -3338,6 +3405,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.176585, y: 8}
   m_EdgeRadius: 0
+--- !u!50 &473278536
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473278532}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &477592214
 GameObject:
   m_ObjectHideFlags: 0
@@ -4267,6 +4355,7 @@ GameObject:
   - component: {fileID: 696457310}
   - component: {fileID: 696457312}
   - component: {fileID: 696457311}
+  - component: {fileID: 696457313}
   m_Layer: 0
   m_Name: Door To Outside
   m_TagString: Untagged
@@ -4327,6 +4416,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 28.788666, y: 8}
   m_EdgeRadius: 0
+--- !u!50 &696457313
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696457309}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &713996840
 GameObject:
   m_ObjectHideFlags: 0
@@ -4380,6 +4490,7 @@ GameObject:
   - component: {fileID: 730346063}
   - component: {fileID: 730346065}
   - component: {fileID: 730346064}
+  - component: {fileID: 730346066}
   m_Layer: 0
   m_Name: Lab Door
   m_TagString: Untagged
@@ -4440,6 +4551,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 8}
   m_EdgeRadius: 0
+--- !u!50 &730346066
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730346062}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &737076969
 GameObject:
   m_ObjectHideFlags: 0
@@ -7604,6 +7736,7 @@ GameObject:
   - component: {fileID: 1231148848}
   - component: {fileID: 1231148850}
   - component: {fileID: 1231148849}
+  - component: {fileID: 1231148851}
   m_Layer: 0
   m_Name: West House Door
   m_TagString: Untagged
@@ -7664,6 +7797,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 8}
   m_EdgeRadius: 0
+--- !u!50 &1231148851
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231148847}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1240840276
 GameObject:
   m_ObjectHideFlags: 0
@@ -10822,6 +10976,7 @@ GameObject:
   - component: {fileID: 1821464657}
   - component: {fileID: 1821464659}
   - component: {fileID: 1821464658}
+  - component: {fileID: 1821464660}
   m_Layer: 0
   m_Name: East House Door
   m_TagString: Untagged
@@ -10882,6 +11037,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 8}
   m_EdgeRadius: 0
+--- !u!50 &1821464660
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821464656}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1825551902
 GameObject:
   m_ObjectHideFlags: 0
@@ -10893,6 +11069,7 @@ GameObject:
   - component: {fileID: 1825551903}
   - component: {fileID: 1825551905}
   - component: {fileID: 1825551904}
+  - component: {fileID: 1825551906}
   m_Layer: 0
   m_Name: DoorToOutside
   m_TagString: Untagged
@@ -10953,6 +11130,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 27.548733, y: 8}
   m_EdgeRadius: 0
+--- !u!50 &1825551906
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825551902}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1827970274
 GameObject:
   m_ObjectHideFlags: 0
@@ -11092,6 +11290,7 @@ GameObject:
   - component: {fileID: 1844704560}
   - component: {fileID: 1844704562}
   - component: {fileID: 1844704561}
+  - component: {fileID: 1844704563}
   m_Layer: 0
   m_Name: DoorToF0
   m_TagString: Untagged
@@ -11152,6 +11351,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 8}
   m_EdgeRadius: 0
+--- !u!50 &1844704563
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844704559}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1853750652
 GameObject:
   m_ObjectHideFlags: 0

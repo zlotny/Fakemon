@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,19 +14,22 @@ public class UIDialogPanel : MonoBehaviour
     private TextMeshProUGUI m_dialogPanelText;
     private ContinueButton m_continueButton;
 
+    private Action m_finishDialogCallback;
+
 
     private void Awake()
     {
         if (_instance != null) throw new UnityException("There's already an instance of " + this.GetType().Name);
         _instance = this;
-    }
 
-    void Start()
-    {
         m_dialogPanelText = GetComponentInChildren<TextMeshProUGUI>();
         if (!m_dialogPanelText) throw new UnityException(this.name + " does not have a child with an TextMeshoProUGUI component on it");
         m_continueButton = GetComponentInChildren<ContinueButton>(true);
         if (!m_continueButton) throw new UnityException(this.name + " does not have a child with an ContinueButton component on it");
+    }
+
+    void Start()
+    {
         m_continueButton.Hide();
         Hide();
     }
@@ -38,11 +42,17 @@ public class UIDialogPanel : MonoBehaviour
         CharacterControls.Instance.SetControlsEnabled(false);
     }
 
+    public void SetFinishDialogCallback(Action action)
+    {
+        m_finishDialogCallback += action;
+    }
+
     public void EndDialog()
     {
         CharacterControls.Instance.SetControlsEnabled(true);
         Hide();
         this.m_dialogPanelText.pageToDisplay = 1;
+        if (m_finishDialogCallback != null) this.m_finishDialogCallback();
     }
 
     public void Hide()

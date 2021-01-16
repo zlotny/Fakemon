@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +27,7 @@ public class CharacterMover : MonoBehaviour
     Rigidbody2D m_rigidBody = null;
     Animator m_animator = null;
     BoxCollider2D m_collider = null;
+    CharacterControls m_characterControls = null;
     #endregion
 
     #region Internal Variables
@@ -35,23 +37,15 @@ public class CharacterMover : MonoBehaviour
     Vector2 m_nextTeleportPoint = new Vector2();
     bool m_isWalking = false;
     bool m_needsToTeleportASAP = false;
+    Action m_onMovingCompleteCallback;
     #endregion
 
-    private static CharacterMover _instance;
-    public static CharacterMover Instance { get { return _instance; } }
-
-    private void Awake()
-    {
-        if (_instance != null) throw new UnityException("There's already an instance of " + this.GetType().Name);
-        _instance = this;
-    }
-
-    void Start()
+    void Awake()
     {
         this.m_rigidBody = GetComponent<Rigidbody2D>();
         this.m_animator = GetComponent<Animator>();
         this.m_collider = GetComponent<BoxCollider2D>();
-
+        this.m_characterControls = GetComponent<CharacterControls>();
     }
 
     // Update is called once per frame
@@ -62,9 +56,19 @@ public class CharacterMover : MonoBehaviour
         CheckIfNeedTeleport();
     }
 
+    public void SetMovingCompleteCallback(Action callback)
+    {
+        m_onMovingCompleteCallback += callback;
+    }
+
     public void SetWalking(bool newState)
     {
         this.m_isWalking = newState;
+    }
+
+    public FacingDirection GetFacingDirection()
+    {
+        return m_facingDirection;
     }
 
     public void SetFacingDirection(FacingDirection newState)
@@ -109,7 +113,20 @@ public class CharacterMover : MonoBehaviour
         this.m_animator.SetInteger("FacingDirection", (int)this.m_facingDirection);
     }
 
-    public bool CanMove(Vector2 direction)
+    public bool CanNPCMove(Vector2 direction)
+    {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(this.m_collider.bounds.center, direction, m_distanceForEachStep);
+        foreach (var hit in hits)
+        {
+            if (hit.transform.tag != "NPC" && !hit.collider.isTrigger)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public bool CanPlayerMove(Vector2 direction)
     {
         RaycastHit2D[] hits = Physics2D.RaycastAll(this.m_collider.bounds.center, direction, m_distanceForEachStep);
         foreach (var hit in hits)
@@ -144,6 +161,15 @@ public class CharacterMover : MonoBehaviour
         throw new UnityException("Weird cardinal direction received :S: " + facingDirection);
     }
 
+    public FacingDirection VectorToFacingDirection(Vector2 vector)
+    {
+        if (vector == Vector2.up) return FacingDirection.North;
+        if (vector == Vector2.right) return FacingDirection.East;
+        if (vector == Vector2.down) return FacingDirection.South;
+        if (vector == Vector2.left) return FacingDirection.West;
+        throw new UnityException("Weird vector received :S: " + vector);
+    }
+
     private void ComputeMovement()
     {
         this.m_rigidBody.velocity = m_currentMovementVector * m_movementSpeed;
@@ -154,7 +180,8 @@ public class CharacterMover : MonoBehaviour
                 this.m_currentMovementVector = new Vector2();
                 this.m_rigidBody.velocity = new Vector2();
                 this.transform.position = new Vector3(Mathf.Floor(this.m_movementStartingPoint.x - m_distanceForEachStep), Mathf.Floor(this.transform.position.y), Mathf.Floor(this.transform.position.z));
-                CharacterControls.Instance.SetControlsEnabled(true);
+                if (m_characterControls) m_characterControls.SetControlsEnabled(true);
+                if (m_onMovingCompleteCallback != null) m_onMovingCompleteCallback();
             }
         }
         if (this.m_currentMovementVector == Vector2.right)
@@ -164,7 +191,8 @@ public class CharacterMover : MonoBehaviour
                 this.m_currentMovementVector = new Vector2();
                 this.m_rigidBody.velocity = new Vector2();
                 this.transform.position = new Vector3(Mathf.Floor(this.m_movementStartingPoint.x + m_distanceForEachStep), Mathf.Floor(this.transform.position.y), Mathf.Floor(this.transform.position.z));
-                CharacterControls.Instance.SetControlsEnabled(true);
+                if (m_characterControls) m_characterControls.SetControlsEnabled(true);
+                if (m_onMovingCompleteCallback != null) m_onMovingCompleteCallback();
             }
 
         }
@@ -175,7 +203,8 @@ public class CharacterMover : MonoBehaviour
                 this.m_currentMovementVector = new Vector2();
                 this.m_rigidBody.velocity = new Vector2();
                 this.transform.position = new Vector3(Mathf.Floor(this.transform.position.x), Mathf.Floor(this.m_movementStartingPoint.y + m_distanceForEachStep), Mathf.Floor(this.transform.position.z));
-                CharacterControls.Instance.SetControlsEnabled(true);
+                if (m_characterControls) m_characterControls.SetControlsEnabled(true);
+                if (m_onMovingCompleteCallback != null) m_onMovingCompleteCallback();
             }
 
         }
@@ -186,7 +215,8 @@ public class CharacterMover : MonoBehaviour
                 this.m_currentMovementVector = new Vector2();
                 this.m_rigidBody.velocity = new Vector2();
                 this.transform.position = new Vector3(Mathf.Floor(this.transform.position.x), Mathf.Floor(this.m_movementStartingPoint.y - m_distanceForEachStep), Mathf.Floor(this.transform.position.z));
-                CharacterControls.Instance.SetControlsEnabled(true);
+                if (m_characterControls) m_characterControls.SetControlsEnabled(true);
+                if (m_onMovingCompleteCallback != null) m_onMovingCompleteCallback();
             }
 
         }

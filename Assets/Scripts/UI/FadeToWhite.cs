@@ -14,12 +14,12 @@ public class FadeToWhite : MonoBehaviour
     {
         if (_instance != null) throw new UnityException("There's already an instance of " + this.GetType().Name);
         _instance = this;
+
+        this.m_animator = this.GetComponent<Animator>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        this.m_animator = this.GetComponent<Animator>();
     }
 
     public void Activate()

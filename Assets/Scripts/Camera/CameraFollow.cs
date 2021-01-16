@@ -13,7 +13,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     float m_verticalOffset = -11f;
     
-    void Start()
+    void Awake()
     {
         m_target = GameObject.FindGameObjectWithTag("Player").transform;
     }

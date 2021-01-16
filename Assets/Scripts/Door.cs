@@ -5,7 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Door : MonoBehaviour
 {
-    public Vector2 m_destination;
+    DoorDestination m_doorDestination;
+
+    void Start()
+    {
+        m_doorDestination = GetComponentInChildren<DoorDestination>();
+        if (m_doorDestination == null) throw new UnityException("Component Door has no DoorDestination in its children");
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,6 +20,6 @@ public class Door : MonoBehaviour
             return;
 
         FadeToWhite.Instance.Activate();
-        playerCharacterMover.RequestTeleportToPoint(m_destination);
+        playerCharacterMover.RequestTeleportToPoint(m_doorDestination.Destination());
     }
 }

@@ -31,6 +31,7 @@ public class CharacterMover : MonoBehaviour
 
     #region Internal Variables
     FacingDirection m_facingDirection = FacingDirection.South;
+    FacingDirection m_nextFacingDirection = FacingDirection.South;
     Vector2 m_currentMovementVector = new Vector2();
     Vector2 m_movementStartingPoint = new Vector2();
     Vector2 m_nextTeleportPoint = new Vector2();
@@ -87,10 +88,11 @@ public class CharacterMover : MonoBehaviour
         SetWalking(true);
     }
 
-    public void RequestTeleportToPoint(Vector2 destination)
+    public void RequestTeleportToPoint(Vector2 destination, bool needsToOverrideFacingDirection, FacingDirection targetFacingDirection)
     {
         this.m_nextTeleportPoint = destination;
         this.m_needsToTeleportASAP = true;
+        m_nextFacingDirection = needsToOverrideFacingDirection ? targetFacingDirection : m_facingDirection;
     }
 
     private void CheckIfNeedTeleport()
@@ -102,6 +104,7 @@ public class CharacterMover : MonoBehaviour
                 this.transform.position = this.m_nextTeleportPoint;
                 this.m_needsToTeleportASAP = false;
                 this.m_nextTeleportPoint = new Vector2();
+                this.m_facingDirection = m_nextFacingDirection;
             }
         }
     }

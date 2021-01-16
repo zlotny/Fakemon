@@ -10,6 +10,11 @@ public class Door : MonoBehaviour
     DoorDestination m_doorDestination;
     Rigidbody2D m_rigidBody;
 
+    [SerializeField]
+    bool m_needsToOverrideCharacterFacingDirection = false;
+    [SerializeField]
+    FacingDirection m_facingDirectionToOverride = FacingDirection.South;
+
     void Start()
     {
         m_doorDestination = GetComponentInChildren<DoorDestination>();
@@ -26,6 +31,6 @@ public class Door : MonoBehaviour
             return;
 
         FadeToWhite.Instance.Activate();
-        playerCharacterMover.RequestTeleportToPoint(m_doorDestination.Destination());
+        playerCharacterMover.RequestTeleportToPoint(m_doorDestination.Destination(), m_needsToOverrideCharacterFacingDirection, m_facingDirectionToOverride);
     }
 }

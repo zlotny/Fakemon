@@ -1577,6 +1577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcad7db87c3d14a2a8def3e30490b22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_needsToOverrideCharacterFacingDirection: 0
+  m_facingDirectionToOverride: 2
 --- !u!61 &241513978
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2242,6 +2244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcad7db87c3d14a2a8def3e30490b22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_needsToOverrideCharacterFacingDirection: 0
+  m_facingDirectionToOverride: 2
 --- !u!61 &338992304
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2987,6 +2991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcad7db87c3d14a2a8def3e30490b22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_needsToOverrideCharacterFacingDirection: 0
+  m_facingDirectionToOverride: 2
 --- !u!61 &437386644
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3090,6 +3096,77 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 29.17664, y: 93.64404}
+  m_EdgeRadius: 0
+--- !u!1 &451762966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 451762967}
+  - component: {fileID: 451762969}
+  - component: {fileID: 451762968}
+  m_Layer: 0
+  m_Name: TV
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &451762967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451762966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 67.8, y: -16.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1032379875}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &451762968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451762966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58cf6dd3ab3337f9287bd5b7b259a69a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_message: Es una TV.
+--- !u!61 &451762969
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451762966}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 4.1379128, y: -3.879243}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10.554512, y: 12.888487}
   m_EdgeRadius: 0
 --- !u!1 &460477143
 GameObject:
@@ -3379,6 +3456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcad7db87c3d14a2a8def3e30490b22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_needsToOverrideCharacterFacingDirection: 1
+  m_facingDirectionToOverride: 2
 --- !u!61 &473278535
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4390,6 +4469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcad7db87c3d14a2a8def3e30490b22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_needsToOverrideCharacterFacingDirection: 0
+  m_facingDirectionToOverride: 2
 --- !u!61 &696457312
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4525,6 +4606,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcad7db87c3d14a2a8def3e30490b22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_needsToOverrideCharacterFacingDirection: 0
+  m_facingDirectionToOverride: 2
 --- !u!61 &730346065
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6004,6 +6087,7 @@ Transform:
   m_Children:
   - {fileID: 1785769984}
   - {fileID: 1844704560}
+  - {fileID: 1032379875}
   m_Father: {fileID: 617892595}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6757,6 +6841,37 @@ Transform:
   - {fileID: 473278533}
   m_Father: {fileID: 617892595}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1032379874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1032379875}
+  m_Layer: 0
+  m_Name: Interactables
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1032379875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032379874}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 451762967}
+  m_Father: {fileID: 966492515}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1059743628
 GameObject:
@@ -7771,6 +7886,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcad7db87c3d14a2a8def3e30490b22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_needsToOverrideCharacterFacingDirection: 0
+  m_facingDirectionToOverride: 2
 --- !u!61 &1231148850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11011,6 +11128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcad7db87c3d14a2a8def3e30490b22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_needsToOverrideCharacterFacingDirection: 0
+  m_facingDirectionToOverride: 2
 --- !u!61 &1821464659
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11104,6 +11223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcad7db87c3d14a2a8def3e30490b22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_needsToOverrideCharacterFacingDirection: 0
+  m_facingDirectionToOverride: 2
 --- !u!61 &1825551905
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11325,6 +11446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcad7db87c3d14a2a8def3e30490b22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_needsToOverrideCharacterFacingDirection: 1
+  m_facingDirectionToOverride: 2
 --- !u!61 &1844704562
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -66,6 +66,11 @@ public class CharacterMover : MonoBehaviour
         this.m_isWalking = newState;
     }
 
+    public float GetDistanceForEachStep()
+    {
+        return m_distanceForEachStep;
+    }
+
     public FacingDirection GetFacingDirection()
     {
         return m_facingDirection;

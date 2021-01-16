@@ -7,6 +7,10 @@ public class WanderingNPC : MonoBehaviour
 {
     [SerializeField]
     private bool m_useOnlyYAxis = false;
+    [SerializeField]
+    private int m_maxHorizontalTilesToMove = 2;
+    [SerializeField]
+    private int m_maxVerticalTilesToMove = 2;
 
     [SerializeField]
     private float m_minSecondsToAction = 2.0f;
@@ -15,6 +19,7 @@ public class WanderingNPC : MonoBehaviour
 
     CharacterMover m_characterMover = null;
     private bool m_shouldMove = true;
+    private Vector2 m_originalPosition;
 
     void Awake()
     {
@@ -25,12 +30,12 @@ public class WanderingNPC : MonoBehaviour
     {
         m_characterMover.SetMovingCompleteCallback(StopWalking);
         UIDialogPanel.Instance.SetFinishDialogCallback(ResumeMoving);
+        m_originalPosition = this.transform.position;
         StartCoroutine(EachSecond());
     }
 
     void MoveRandomly()
     {
-        // FIXME: Move only within some bounds, not 100% randomly.
         if (!m_shouldMove) return;
         FacingDirection targetFacingDirection = FacingDirection.South;
         int randomChoice = Random.Range(0, m_useOnlyYAxis ? 2 : 4);
@@ -42,7 +47,29 @@ public class WanderingNPC : MonoBehaviour
         Vector2 targetVector = m_characterMover.FacingDirectionToVector(targetFacingDirection);
         if (!m_characterMover.CanNPCMove(targetVector)) return;
         m_characterMover.SetFacingDirection(targetFacingDirection);
+        if (!SatisfiesMovementConstraints(targetVector)) return;
         m_characterMover.StartMovingTowards(targetVector);
+    }
+
+    public bool SatisfiesMovementConstraints(Vector2 targetDestination)
+    {
+        if (targetDestination == Vector2.up || targetDestination == Vector2.down)
+        {
+            float targetDestinationYPosition = transform.position.y + (targetDestination.y * m_characterMover.GetDistanceForEachStep());
+            if (Mathf.Abs(targetDestinationYPosition - m_originalPosition.y) <= m_characterMover.GetDistanceForEachStep() * m_maxVerticalTilesToMove)
+            {
+                return true;
+            }
+        }
+        if (targetDestination == Vector2.right || targetDestination == Vector2.left)
+        {
+            float targetDestinationXPosition = transform.position.x + (targetDestination.x * m_characterMover.GetDistanceForEachStep());
+            if (Mathf.Abs(targetDestinationXPosition - m_originalPosition.x) <= m_characterMover.GetDistanceForEachStep() * m_maxHorizontalTilesToMove)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void StopMoving()

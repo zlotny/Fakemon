@@ -11,7 +11,6 @@ public enum FacingDirection
     West = 3
 }
 
-[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(BoxCollider2D))]
 public class CharacterMover : MonoBehaviour
@@ -43,7 +42,6 @@ public class CharacterMover : MonoBehaviour
 
     void Awake()
     {
-        this.m_rigidBody = GetComponent<Rigidbody2D>();
         this.m_animator = GetComponent<Animator>();
         this.m_collider = GetComponent<BoxCollider2D>();
         this.m_characterControls = GetComponent<CharacterControls>();
@@ -110,7 +108,7 @@ public class CharacterMover : MonoBehaviour
 
     private bool IsIdle()
     {
-        return this.m_rigidBody.velocity.magnitude == 0;
+        return !this.m_isWalking && !this.m_isJumping;
     }
 
     private void UpdateAnimatorParameters()
@@ -220,14 +218,14 @@ public class CharacterMover : MonoBehaviour
 
     private void ComputeMovement()
     {
-        this.m_rigidBody.velocity = m_currentMovementVector * m_movementSpeed;
+        Vector2 frameMovement = m_currentMovementVector * m_movementSpeed * Time.deltaTime;
+        this.transform.position += new Vector3(frameMovement.x, frameMovement.y, this.transform.position.z);
         float totalDistanceToMove = m_isJumping ? m_distanceForEachStep * 2 : m_distanceForEachStep;
         if (this.m_currentMovementVector == Vector2.left)
         {
             if (this.transform.position.x < this.m_movementStartingPoint.x - totalDistanceToMove)
             {
                 this.m_currentMovementVector = new Vector2();
-                this.m_rigidBody.velocity = new Vector2();
                 this.transform.position = new Vector3(Mathf.Floor(this.m_movementStartingPoint.x - totalDistanceToMove), Mathf.Floor(this.transform.position.y), Mathf.Floor(this.transform.position.z));
                 if (m_isJumping) StopJumping();
                 if (m_onMovingCompleteCallback != null) m_onMovingCompleteCallback();
@@ -239,7 +237,6 @@ public class CharacterMover : MonoBehaviour
             if (this.transform.position.x > this.m_movementStartingPoint.x + totalDistanceToMove)
             {
                 this.m_currentMovementVector = new Vector2();
-                this.m_rigidBody.velocity = new Vector2();
                 this.transform.position = new Vector3(Mathf.Floor(this.m_movementStartingPoint.x + totalDistanceToMove), Mathf.Floor(this.transform.position.y), Mathf.Floor(this.transform.position.z));
                 if (m_isJumping) StopJumping();
                 if (m_onMovingCompleteCallback != null) m_onMovingCompleteCallback();
@@ -252,7 +249,6 @@ public class CharacterMover : MonoBehaviour
             if (this.transform.position.y > this.m_movementStartingPoint.y + totalDistanceToMove)
             {
                 this.m_currentMovementVector = new Vector2();
-                this.m_rigidBody.velocity = new Vector2();
                 this.transform.position = new Vector3(Mathf.Floor(this.transform.position.x), Mathf.Floor(this.m_movementStartingPoint.y + totalDistanceToMove), Mathf.Floor(this.transform.position.z));
                 if (m_isJumping) StopJumping();
                 if (m_onMovingCompleteCallback != null) m_onMovingCompleteCallback();
@@ -265,7 +261,6 @@ public class CharacterMover : MonoBehaviour
             if (this.transform.position.y < this.m_movementStartingPoint.y - totalDistanceToMove)
             {
                 this.m_currentMovementVector = new Vector2();
-                this.m_rigidBody.velocity = new Vector2();
                 this.transform.position = new Vector3(Mathf.Floor(this.transform.position.x), Mathf.Floor(this.m_movementStartingPoint.y - totalDistanceToMove), Mathf.Floor(this.transform.position.z));
                 if (m_isJumping) StopJumping();
                 if (m_onMovingCompleteCallback != null) m_onMovingCompleteCallback();

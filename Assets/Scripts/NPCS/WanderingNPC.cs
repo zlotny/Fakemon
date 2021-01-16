@@ -6,7 +6,9 @@ using UnityEngine;
 public class WanderingNPC : MonoBehaviour
 {
     [SerializeField]
-    private bool m_useOnlyYAxis = false;
+    private bool m_lockYAxis = false;
+    [SerializeField]
+    private bool m_lockXAxis = false;
     [SerializeField]
     private int m_maxHorizontalTilesToMove = 2;
     [SerializeField]
@@ -38,11 +40,11 @@ public class WanderingNPC : MonoBehaviour
     {
         if (!m_shouldMove) return;
         FacingDirection targetFacingDirection = FacingDirection.South;
-        int randomChoice = Random.Range(0, m_useOnlyYAxis ? 2 : 4);
-        if (randomChoice == 0) targetFacingDirection = FacingDirection.North;
-        if (randomChoice == 1) targetFacingDirection = FacingDirection.South;
-        if (randomChoice == 2) targetFacingDirection = FacingDirection.West;
-        if (randomChoice == 3) targetFacingDirection = FacingDirection.East;
+        int randomChoice = Random.Range(0, 4);
+        if (randomChoice == 0 && !m_lockYAxis) targetFacingDirection = FacingDirection.North;
+        if (randomChoice == 1 && !m_lockYAxis) targetFacingDirection = FacingDirection.South;
+        if (randomChoice == 2 && !m_lockXAxis) targetFacingDirection = FacingDirection.West;
+        if (randomChoice == 3 && !m_lockXAxis) targetFacingDirection = FacingDirection.East;
 
         Vector2 targetVector = m_characterMover.FacingDirectionToVector(targetFacingDirection);
         if (!m_characterMover.CanNPCMove(targetVector)) return;

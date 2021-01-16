@@ -3559,9 +3559,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c601a6f04e355645987c04f1c0b5d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_useOnlyYAxis: 0
-  m_minSecondsToAction: 1
-  m_maxSecondsToAction: 2
+  m_useOnlyYAxis: 1
+  m_maxHorizontalTilesToMove: 1
+  m_maxVerticalTilesToMove: 1
+  m_minSecondsToAction: 2
+  m_maxSecondsToAction: 4
 --- !u!1 &803388680
 GameObject:
   m_ObjectHideFlags: 0

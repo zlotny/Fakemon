@@ -46,6 +46,11 @@ public class CharacterControls : MonoBehaviour
         this.m_controlsEnabled = enabled;
     }
 
+    public void EnableControls()
+    {
+        this.SetControlsEnabled(true);
+    }
+
     private void ComputeControls()
     {
         if (!m_controlsEnabled) return;
@@ -61,6 +66,18 @@ public class CharacterControls : MonoBehaviour
         if (Input.GetButtonDown("B"))
         {
             Debug.Log("Player pressed B ");
+        }
+
+        if (Input.GetButtonDown("Select"))
+        {
+            Debug.Log("Player pressed Select");
+        }
+
+        if (Input.GetButtonDown("Start"))
+        {
+            UIPauseMenu.Instance.SetOnFinishCallback(EnableControls);
+            UIPauseMenu.Instance.Show();
+            SetControlsEnabled(false);
         }
 
         // Set the direction we want to go

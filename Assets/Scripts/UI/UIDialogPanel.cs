@@ -36,7 +36,7 @@ public class UIDialogPanel : MonoBehaviour
 
     public void ShowText(string text)
     {
-        m_currentMessage = text;
+        m_currentMessage = StringKeysReplacer.Replace(text);
         m_dialogPanelText.SetText(m_currentMessage);
         this.gameObject.SetActive(true);
         CharacterControls.Instance.SetControlsEnabled(false);

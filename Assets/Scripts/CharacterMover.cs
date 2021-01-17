@@ -23,7 +23,6 @@ public class CharacterMover : MonoBehaviour
     #endregion
 
     #region Component refernces
-    Rigidbody2D m_rigidBody = null;
     Animator m_animator = null;
     BoxCollider2D m_collider = null;
     CharacterControls m_characterControls = null;
